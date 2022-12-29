@@ -6,7 +6,6 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   Tag.findAll({
-    include:[Product]
   })
   .then(tag=>res.json(tag))
   .catch(err=>res.json(err))
@@ -19,7 +18,6 @@ router.get('/:id', (req, res) => {
     where:{
       id:req.params.id
     },
-    include:[Product]
   })
   .then(tag=>res.json(tag))
   .catch(err=>res.json(err))
